@@ -1,0 +1,4 @@
+name: Schnick
+version: '${project.version}'
+main: dev.mrvte.schnick.Schnick
+api-version: 1.18
