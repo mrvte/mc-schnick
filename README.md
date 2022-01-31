@@ -1,5 +1,5 @@
 # Minecraft Villager Schnick Schnack Schnuck
-### a Spigot Server Plugin
+## a Spigot Server Plugin
 
 ### Vision
 You can play "Schnick, Schnack, Schnuck" with a Villager to get better deals or special drop items.
