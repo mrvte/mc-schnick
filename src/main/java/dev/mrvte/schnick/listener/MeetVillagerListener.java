@@ -1,6 +1,7 @@
 package dev.mrvte.schnick.listener;
 
 import org.bukkit.*;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
@@ -34,8 +35,11 @@ public class MeetVillagerListener implements Listener {
         }
     };
 
-    private void resetTimeout()  {
+    private synchronized void resetTimeout() {
+        ConsoleCommandSender ccs = Bukkit.getConsoleSender();
+        ccs.sendMessage("resetTimeout");
         this.timeout = false;
+        this.timeoutTimer.cancel();
     }
 
 
@@ -54,7 +58,7 @@ public class MeetVillagerListener implements Listener {
                 if (handItem.getType() == this.gameItems.get(randomNum)) {
                     p.sendMessage(ChatColor.RED + this.gameItemsNames.get(randomNum) + "! Das habe ich auch :P");
                     e.setCancelled(false);
-                } else  {
+                } else {
                     if ((handItem.getType() == Material.SHEARS && this.gameItems.get(randomNum) == Material.STONE) || (handItem.getType() == Material.PAPER && this.gameItems.get(randomNum) == Material.SHEARS) || (handItem.getType() == Material.STONE && this.gameItems.get(randomNum) == Material.PAPER)) {
                         p.sendMessage(ChatColor.RED + this.gameItemsNames.get(randomNum) + "! Ich hab gewonnen! :P");
                         p.getWorld().dropItemNaturally(v.getLocation(), new ItemStack(Material.ROTTEN_FLESH, 64));

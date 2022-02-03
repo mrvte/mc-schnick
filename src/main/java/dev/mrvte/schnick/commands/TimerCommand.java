@@ -13,11 +13,11 @@ public class TimerCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if(args.length == 0){
-          sendUsage(sender);
-            return  true;
+        if (args.length == 0) {
+            sendUsage(sender);
+            return true;
         }
-        switch (args[0].toLowerCase()){
+        switch (args[0].toLowerCase()) {
             case "resume": {
                 Timer timer = Schnick.getInstance().getTimer();
 
@@ -38,20 +38,20 @@ public class TimerCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.GRAY + "Der Timer wurde gestoppt!");
                 break;
             }
-            case "time":{
+            case "time": {
                 //Timer timer = Main.getInstance().getTimer();
-                if(args.length != 2){
+                if (args.length != 2) {
                     sender.sendMessage("§7Verwengun§8: §9/timer time <Zeit>");
-                    return  true;
+                    return true;
                 }
 
                 try {
                     Timer timer = Schnick.instance.getTimer();
                     timer.setRunning(false);
                     timer.setTime(Integer.parseInt(args[1]));
-                    sender.sendMessage(ChatColor.GRAY + "Der Timer wurde auf " +args[1] + " gesetzt!");
+                    sender.sendMessage(ChatColor.GRAY + "Der Timer wurde auf " + args[1] + " gesetzt!");
 
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     sender.sendMessage(ChatColor.RED + "Dein Parameter 2 muss eine Zahl sein!");
                 }
 
@@ -75,7 +75,8 @@ public class TimerCommand implements CommandExecutor {
         return false;
 
     }
-    private void sendUsage(CommandSender sender ){
+
+    private void sendUsage(CommandSender sender) {
         sender.sendMessage("§7Verwendung§8: §9/timer resume, /timer pause, /timer time <Zeit>, /timer reset");
     }
 }

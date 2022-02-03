@@ -17,6 +17,7 @@ public final class Schnick extends JavaPlugin {
     public void onLoad() {
         instance = this;
     }
+
     @Override
     public void onEnable() {
 
@@ -24,8 +25,6 @@ public final class Schnick extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
 
         pluginManager.registerEvents(new MeetVillagerListener(), this);
-
-
         pluginManager.registerEvents(new JoinListener(), this);
         pluginManager.registerEvents(new QuitListener(), this);
         timer = new Timer(false, 0);
@@ -35,11 +34,13 @@ public final class Schnick extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+  
     }
+
     public Timer getTimer() {
         return timer;
     }
+
     public static Schnick getInstance() {
         return instance;
     }
