@@ -82,6 +82,7 @@ public class SchnickListener implements Listener {
                 player.getWorld().dropItemNaturally(villager.getLocation(), new ItemStack(Material.EMERALD, 64));
                 villager.playEffect(EntityEffect.VILLAGER_ANGRY);
                 player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 30, 1));
+
                 event.setCancelled(false);
             }
 
